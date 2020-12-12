@@ -15,9 +15,9 @@ public class ArbolB {
 	}	
 	public ArbolB subDerecho()
 	{
-		//creo un arbol vacío
+		//creo un arbol vacï¿½o
 		ArbolB subDer = new ArbolB();
-		//La raíz del subarbol derecho es el nodo hijo derecho de la raíz del árbol
+		//La raï¿½z del subarbol derecho es el nodo hijo derecho de la raï¿½z del ï¿½rbol
 		subDer.setRaiz(this.raiz.getNodoDer());
 		
 		return subDer;
@@ -29,7 +29,7 @@ public class ArbolB {
 		return subIzq;
 	}
 	
-	public void agregarNodo(int d, char n) {
+	/*public void agregarNodo(int d, char n) {
 		NodoB nuevo = new NodoB(d, n);
 		if(raiz==null) {
 			raiz=nuevo;
@@ -53,7 +53,7 @@ public class ArbolB {
 				}
 			}
 		}
-	}
+	}*/
 	/*
 	public void insertar(int i, String nombre) {
 		NodoB n = new NodoB();
@@ -70,10 +70,5 @@ public class ArbolB {
 		
 	}*/
 	
-	public void recorrer(NodoB n) {
-		if(n != null) {
-			
-		}
-	}
 
 }

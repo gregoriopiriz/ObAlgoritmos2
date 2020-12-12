@@ -14,8 +14,8 @@ public class NodoB {
 		this.dato = dato;
 	}
 	
-	public int getNombre() {
-		return dato;
+	public char getNombre() {
+		return nombre;
 	}
 	public void setNombre(char nombre) {
 		this.nombre = nombre;
@@ -46,7 +46,7 @@ public class NodoB {
 		nodoDer= null;
 		
 	}
-	public NodoB(int i, int j) {
+	public NodoB(int i) {
 		dato= i;
 		nodoIzq = null;
 		nodoDer= null;
