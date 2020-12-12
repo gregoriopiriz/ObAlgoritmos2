@@ -5,9 +5,7 @@ public class index {
 
 	public static void main(String[] args) {
 
-		// char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'};
 
-		// char inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'};
 
 		ArbolB nuevo = new ArbolB();
 		NodoB nuevonodo = new NodoB(0, "G");// G
@@ -40,6 +38,13 @@ public class index {
 
 		imprimirPostorden(nuevo.getRaiz());
 		System.out.println("SEPARANDO ESTA MIERDA");
+
+		char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'};
+		char inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'};
+        int len = inorden.length; 
+        ImprimirPostorden tree = new ImprimirPostorden(); 
+		tree.printPost(inorden, preorden, 0, len - 1); 
+		
 		// listarItPostorden(nuevo.getRaiz());
 
 		// imprimirPosorden(nuevo);
@@ -164,7 +169,7 @@ public class index {
 			imprimirInorden(auxRaiz.getNodoDer());
 		}
 	}
-
+	/*
 	static void printPostOrder(int in1[], int pre[], int n) {
 		// The first element in pre[] is
 		// always root, search it in in[]
@@ -193,7 +198,7 @@ public class index {
 			if (arr[i] == x)
 				return i;
 		return -1;
-	}
+	}*/
 
 	/*
 	 * public static char[] encontrarArbolDer(char raiz, char[] inorden) { char
