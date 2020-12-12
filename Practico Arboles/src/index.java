@@ -224,7 +224,7 @@ public class index {
 		System.out.println();
 	}*/
 	
-	PARA EL PARCIAL 
+	//PARA EL PARCIAL 
 	
     public static ArbolBB insertar(ArbolBB arbol, int x) {
         // Si el arbol es vac�o inserto el valor como ra�z
