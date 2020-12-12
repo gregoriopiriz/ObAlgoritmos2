@@ -4,33 +4,33 @@ public class index {
 
 	public static void main(String[] args) {
 
-		/*
+		
 		ArbolB nuevo = new ArbolB();
 		
-		NodoB nuevonodo = new NodoB("G");
-		NodoB nodoM = new NodoB("M");
-		NodoB nodoE = new NodoB("E");
+		NodoB nuevonodo = new NodoB(0,"G");
+		NodoB nodoM = new NodoB(1,"M");
+		NodoB nodoE = new NodoB(2,"E");
 		nuevonodo.setNodoIzq(nodoM);
 		nuevonodo.setNodoDer(nodoE);
-		NodoB nodoA = new NodoB("A");
+		NodoB nodoA = new NodoB(2,"A");
 		nodoE.setNodoDer(nodoA);
-		NodoB nodoI = new NodoB("I");
+		NodoB nodoI = new NodoB(3,"I");
 		nodoA.setNodoDer(nodoI);
-		NodoB nodoB = new NodoB("B");
+		NodoB nodoB = new NodoB(4,"B");
 		nodoA.setNodoIzq(nodoB);
-		NodoB nodoC = new NodoB("C");
-		NodoB nodoK = new NodoB("K");
+		NodoB nodoC = new NodoB(5,"C");
+		NodoB nodoK = new NodoB(6,"K");
 		nodoM.setNodoIzq(nodoK);
 		nodoM.setNodoDer(nodoC);
-		NodoB nodoL = new NodoB("L");
-		NodoB nodoF = new NodoB("F");
+		NodoB nodoL = new NodoB(7,"L");
+		NodoB nodoF = new NodoB(8,"F");
 		nodoC.setNodoIzq(nodoF);
 		nodoC.setNodoDer(nodoL);
-		NodoB nodoD = new NodoB("D");
+		NodoB nodoD = new NodoB(9,"D");
 		nodoL.setNodoIzq(nodoD);
-		NodoB nodoJ = new NodoB("J");
+		NodoB nodoJ = new NodoB(10,"J");
 		nodoK.setNodoIzq(nodoJ);
-		NodoB nodoH = new NodoB("H");
+		NodoB nodoH = new NodoB(11,"H");
 		nodoJ.setNodoDer(nodoH);
 
 		
@@ -40,7 +40,7 @@ public class index {
 		//imprimirPosorden(nuevo);
 		
 		imprimirPosorden(nuevo);
-		*/
+		
 		/*
 		int opcion=0, elemento;
 		String nombre;
@@ -80,6 +80,7 @@ public class index {
 		char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'};
 		
 		char inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'};
+		
 		
 	}
 

@@ -38,10 +38,10 @@ public class NodoB {
 	{
 		
 	}
-	public NodoB(int x, char n)
+	public NodoB(int x, String n)
 	{
 		dato=x;
-		nombre=n;
+		nombre= n.charAt(0);
 		nodoIzq = null;
 		nodoDer= null;
 		
