@@ -29,7 +29,7 @@ public class ArbolB {
 		return subIzq;
 	}
 	
-	/*public void agregarNodo(int d, char n) {
+	public void agregarNodo(int d, String n) {
 		NodoB nuevo = new NodoB(d, n);
 		if(raiz==null) {
 			raiz=nuevo;
@@ -53,8 +53,8 @@ public class ArbolB {
 				}
 			}
 		}
-	}*/
-	/*
+	}
+	
 	public void insertar(int i, String nombre) {
 		NodoB n = new NodoB();
 		n.setNombre(nombre);;
@@ -68,7 +68,7 @@ public class ArbolB {
 			}
 		}
 		
-	}*/
+	}
 	
 
 }

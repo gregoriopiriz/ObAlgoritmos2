@@ -2,7 +2,7 @@
 public class NodoB {
 	
 	private int dato;
-	private char nombre;
+	private String nombre;
 	private NodoB padre;
 	private NodoB nodoIzq;
 	private NodoB nodoDer;
@@ -14,10 +14,10 @@ public class NodoB {
 		this.dato = dato;
 	}
 	
-	public char getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
-	public void setNombre(char nombre) {
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
@@ -41,7 +41,7 @@ public class NodoB {
 	public NodoB(int x, String n)
 	{
 		dato=x;
-		nombre= n.charAt(0);
+		nombre= n;
 		nodoIzq = null;
 		nodoDer= null;
 		

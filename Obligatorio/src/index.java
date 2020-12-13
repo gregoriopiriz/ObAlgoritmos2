@@ -3,10 +3,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Stack;
 
+import javax.swing.JOptionPane;
+
 public class index {
 
 	public static void main(String[] args) {
 
+		
 		ArbolB arbol = new ArbolB();
 		NodoB nuevonodo = new NodoB(0, "G");// G
 		NodoB nodoM = new NodoB(1, "M");// M
@@ -35,13 +38,38 @@ public class index {
 		nodoJ.setNodoIzq(nodoH);
 
 		arbol.setRaiz(nuevonodo);
+		
+		
+		ArbolB arbolControlSwitch = new ArbolB();
+		NodoB nodoRaiz= new NodoB(4, "m");
+		NodoB nodo1 = new NodoB(2, "s");
+		NodoB nodo2 = new NodoB(3, "t");
+		NodoB nodo3 = new NodoB(3, "q");
+		NodoB nodo4 = new NodoB(6, "d");
+		NodoB nodo5 = new NodoB(5, "k");
+		arbolControlSwitch.setRaiz(nodoRaiz);
+		nodoRaiz.setNodoDer(nodo4);
+		nodoRaiz.setNodoIzq(nodo3);
+		nodo3.setNodoIzq(nodo1);
+		nodo3.setNodoDer(nodo2);
+		nodo4.setNodoIzq(nodo5);
 
-		//Esto es para el ej 3 para ver si estan los caminos dentro del arbol
-		//listas que se cargan mediante funcion recursiva segun el orden que queremos obtener del arbol
+		ArrayList<String> preordenControl = new ArrayList<String>();
+		System.out.println("Imprimir Preorden Arbol Control");
+		imprimirPreorden(arbolControlSwitch.getRaiz(), preordenControl);
+		System.out.println("Imprimir Array Preorden Control");
+		for (int i = 0; i < preordenControl.size(); i++) {
+			System.out.println(preordenControl.get(i));
+		}
+
+
+		// Esto es para el ej 3 para ver si estan los caminos dentro del arbol
+		// listas que se cargan mediante funcion recursiva segun el orden que queremos
+		// obtener del arbol
 		ArrayList<String> preorden = new ArrayList<String>();
 		ArrayList<String> inorden = new ArrayList<String>();
 		ArrayList<String> postorden = new ArrayList<String>();
-
+		/*
 		System.out.println("Imprimir Preorden");
 		imprimirPreorden(arbol.getRaiz(), preorden);
 		System.out.println("Imprimir Array Preorden");
@@ -59,23 +87,20 @@ public class index {
 		System.out.println("Imprimir Postorden");
 		imprimirPostorden(arbol.getRaiz(), postorden);
 		System.out.println("Imprimir Array Postorden");
-		for (int i = 0; i <postorden.size(); i++) {
+		for (int i = 0; i < postorden.size(); i++) {
 			System.out.println(postorden.get(i));
 		}
-
-		/*
-		System.out.println("1-B Listar en Preorden");
-		imprimirItPostorden(arbol);
-		System.out.println("1-B Listar en Inorden");
-		imprimirItInorden(arbol);
-		System.out.println("SEPARANDO");
-
-		char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'};
-		char inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'};
-        int len = inorden.length;
-        ImprimirPostorden tree = new ImprimirPostorden();
-		tree.printPost(inorden, preorden, 0, len - 1);
 		*/
+		/*
+		 * System.out.println("1-B Listar en Preorden"); imprimirItPostorden(arbol);
+		 * System.out.println("1-B Listar en Inorden"); imprimirItInorden(arbol);
+		 * System.out.println("SEPARANDO");
+		 * 
+		 * char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'}; char
+		 * inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'}; int len =
+		 * inorden.length; ImprimirPostorden tree = new ImprimirPostorden();
+		 * tree.printPost(inorden, preorden, 0, len - 1);
+		 */
 		// listarItPostorden(nuevo.getRaiz());
 
 		// imprimirPosorden(nuevo);
@@ -92,39 +117,54 @@ public class index {
 		// System.out.print("Arbol recien robado de otro arbol");
 		// imprimirPosorden(arbol);
 
-		/*
-		 * int opcion=0, elemento; String nombre; ArbolB arbol = new ArbolB(); do { try
-		 * { opcion= Integer.parseInt(JOptionPane.showInputDialog(null,
-		 * "1. Agregar un Nodo\n" + "2. Salir\n" + "Elige una Opcion...","Ej 2" ,
-		 * JOptionPane.QUESTION_MESSAGE)); switch(opcion) { case 1: elemento =
-		 * Integer.parseInt(JOptionPane.showInputDialog(null,
-		 * "ingresa el numero del Nodo...", "Agregando Nodo" ,
-		 * JOptionPane.QUESTION_MESSAGE)); nombre = JOptionPane.showInputDialog(null,
-		 * "Ingresa el Nombre del Nodo...", "Agregando Nodo" ,
-		 * JOptionPane.QUESTION_MESSAGE); arbol.agregarNodo(elemento, nombre); break;
-		 * case 2: JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin"
-		 * ,JOptionPane.QUESTION_MESSAGE); break; default:
-		 * JOptionPane.showMessageDialog(null, "Opcion no valida",
-		 * "Pon bien la opcion vite" ,JOptionPane.QUESTION_MESSAGE); }
-		 * }catch(NumberFormatException n) { JOptionPane.showMessageDialog(null, "Error"
-		 * + n.getMessage()); } }while(opcion!=2);
-		 */
+		//PARA QUE ESTO FUNCIONE SIEMPRE HAY QUE AGREGAR EN ESTE ORDEN RAIZ / IZQUIERDO / DERECHO
+		// CREA ARBOLES BINARIOS DE BUSQUEDA
+		int opcion = 0, elemento;
+		String nombre;
+		ArbolB arbolSwitch = new ArbolB();
+		do {
+			try {
+				opcion = Integer.parseInt(
+						JOptionPane.showInputDialog(null, "1. Agregar un Nodo\n" + "2. Salir\n" + "Elige una Opcion...",
+								"Ej 2", JOptionPane.QUESTION_MESSAGE));
+				switch (opcion) {
+					case 1:
+						elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "ingresa el numero del Nodo...",
+								"Agregando Nodo", JOptionPane.QUESTION_MESSAGE));
+						nombre = JOptionPane.showInputDialog(null, "Ingresa el Nombre del Nodo...", "Agregando Nodo",
+								JOptionPane.QUESTION_MESSAGE);
+								arbolSwitch.agregarNodo(elemento, nombre);
+						break;
+					case 2:
+						JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin", JOptionPane.QUESTION_MESSAGE);
+						break;
+					default:
+						JOptionPane.showMessageDialog(null, "Opcion no valida", "Pon bien la opcion vite",
+								JOptionPane.QUESTION_MESSAGE);
+				}
+			} catch (NumberFormatException n) {
+				JOptionPane.showMessageDialog(null, "Error" + n.getMessage());
+			}
+		} while (opcion != 2);
 
-	}
+		System.out.println("Imprimir Preorden");
+		imprimirPreorden(arbolSwitch.getRaiz(), preorden);
+		System.out.println("Imprimir Array Preorden");
+		for (int i = 0; i < preorden.size(); i++) {
+			System.out.println(preorden.get(i));
+		}
+	}//	ACA TERMINA EL MAIN
 
-	/*public static char[] addElement(char[] a, char e) {
-		a = Arrays.copyOf(a, a.length + 1);
-		a[a.length - 1] = e;
-		return a;
-	}*/
+	/*
+	 * public static char[] addElement(char[] a, char e) { a = Arrays.copyOf(a,
+	 * a.length + 1); a[a.length - 1] = e; return a; }
+	 */
 
-	/*private static char[] addElement(char[] array, char push) {
-		char[] longer = new char[array.length + 1];
-		for (int i = 0; i < array.length; i++)
-			longer[i] = array[i];
-		longer[array.length] = push;
-		return longer;
-	}*/
+	/*
+	 * private static char[] addElement(char[] array, char push) { char[] longer =
+	 * new char[array.length + 1]; for (int i = 0; i < array.length; i++) longer[i]
+	 * = array[i]; longer[array.length] = push; return longer; }
+	 */
 
 	public static void imprimirArray(char[] a) {
 		for (int i = 0; i < a.length; i++) {
@@ -132,7 +172,7 @@ public class index {
 		}
 	}
 
-	//1B POSTORDEN TERMINADA
+	// 1B POSTORDEN TERMINADA
 	public static void imprimirItPostorden(ArbolB arbol) {
 		NodoB raiz = arbol.getRaiz();
 		if (raiz == null) {
@@ -158,35 +198,28 @@ public class index {
 		}
 	}
 
-	//1B INORDEN TERMINADA
-	public static void imprimirItInorden(ArbolB arbol)
-    {
-        Stack<NodoB> pila = new Stack<NodoB>(); 
+	// 1B INORDEN TERMINADA
+	public static void imprimirItInorden(ArbolB arbol) {
+		Stack<NodoB> pila = new Stack<NodoB>();
 
-        NodoB aux = new NodoB();
-        aux=arbol.getRaiz();
-        while(!pila.isEmpty() || aux!=null)
-        {
-            if(aux==null)
-            {
-                System.out.println(pila.lastElement().getNombre());
-                aux=pila.lastElement();
-                pila.pop();
-                aux=aux.getNodoDer();
-            }
-            else
-            {
-                pila.push(aux);
-                aux=aux.getNodoIzq();
-            }
-        }
+		NodoB aux = new NodoB();
+		aux = arbol.getRaiz();
+		while (!pila.isEmpty() || aux != null) {
+			if (aux == null) {
+				System.out.println(pila.lastElement().getNombre());
+				aux = pila.lastElement();
+				pila.pop();
+				aux = aux.getNodoDer();
+			} else {
+				pila.push(aux);
+				aux = aux.getNodoIzq();
+			}
+		}
 	}
-	
+
 	public static void imprimirPreorden(NodoB auxRaiz, ArrayList<String> lista) {
 		if (auxRaiz != null) {
-			char c=auxRaiz.getNombre();
-			String s=Character.toString(c);
-			lista.add(s);
+			lista.add(auxRaiz.getNombre());
 			System.out.println(auxRaiz.getNombre() + " ");
 			imprimirPreorden(auxRaiz.getNodoIzq(), lista);
 			imprimirPreorden(auxRaiz.getNodoDer(), lista);
@@ -197,9 +230,7 @@ public class index {
 		if (auxRaiz != null) {
 			imprimirPostorden(auxRaiz.getNodoIzq(), lista);
 			imprimirPostorden(auxRaiz.getNodoDer(), lista);
-			char c=auxRaiz.getNombre();
-			String s=Character.toString(c);
-			lista.add(s);
+			lista.add(auxRaiz.getNombre());
 			System.out.println(auxRaiz.getNombre() + " ");
 		}
 	}
@@ -207,9 +238,7 @@ public class index {
 	public static void imprimirInorden(NodoB auxRaiz, ArrayList<String> lista) {
 		if (auxRaiz != null) {
 			imprimirInorden(auxRaiz.getNodoIzq(), lista);
-			char c=auxRaiz.getNombre();
-			String s=Character.toString(c);
-			lista.add(s);
+			lista.add(auxRaiz.getNombre());
 			System.out.println(auxRaiz.getNombre() + " ");
 			imprimirInorden(auxRaiz.getNodoDer(), lista);
 		}
