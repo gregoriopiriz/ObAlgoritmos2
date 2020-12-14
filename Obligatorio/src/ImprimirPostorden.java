@@ -1,31 +1,36 @@
-public class ImprimirPostorden { 
-    static int preIndex = 0; 
-    void printPost(char[] in, char[] pre, int inStrt, int inEnd) 
+import java.util.ArrayList;
+
+public class ImprimirPostorden {
+    public int anterior = 0; 
+    public ArrayList<String> resultadoPostorden = new ArrayList<String>();
+
+    public void imprimirPost(char[] inorden, char[] preorden, int comienzo, int fin) 
     { 
-        if (inStrt > inEnd)  
+        if (comienzo > fin) {
             return;         
+        }
   
-        // Find index of next item in preorder traversal in 
-        // inorder. 
-        int inIndex = search(in, inStrt, inEnd, pre[preIndex++]); 
+        int auxi = buscar(inorden, comienzo, fin, preorden[anterior++]); 
   
-        // traverse left tree 
-        printPost(in, pre, inStrt, inIndex - 1); 
+        imprimirPost(inorden, preorden, comienzo, auxi - 1); 
   
-        // traverse right tree 
-        printPost(in, pre, inIndex + 1, inEnd); 
+        imprimirPost(inorden, preorden, auxi + 1, fin); 
   
-        // print root node at the end of traversal 
-        System.out.print(in[inIndex] + " "); 
+        char coso=inorden[auxi];
+        String s=Character.toString(coso);
+        resultadoPostorden.add(s);
+        System.out.print(inorden[auxi] + " ");
     } 
   
-    int search(char[] in, int startIn, int endIn, int data) 
+    public int buscar(char[] inorden, int comienzo, int fin, int data) 
     { 
         int i = 0; 
-        for (i = startIn; i < endIn; i++)
-            if (in[i] == data)  
+        for (i = comienzo; i < fin; i++){
+            if (inorden[i] == data) {
                 return i;             
+            } 
+        }
         return i; 
-    } 
+    }
     
 } 
