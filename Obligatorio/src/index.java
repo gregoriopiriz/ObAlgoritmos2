@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Stack;
 
 import javax.swing.JOptionPane;
@@ -40,14 +38,14 @@ public class index {
 		arbol.setRaiz(nuevonodo);
 		
 		
-		ArbolB arbolControlSwitch = new ArbolB();
+		ArbolB arbolEjercicio3 = new ArbolB();
 		NodoB nodoRaiz= new NodoB(4, "m");
 		NodoB nodo1 = new NodoB(2, "s");
 		NodoB nodo2 = new NodoB(3, "t");
 		NodoB nodo3 = new NodoB(3, "q");
 		NodoB nodo4 = new NodoB(6, "d");
 		NodoB nodo5 = new NodoB(5, "k");
-		arbolControlSwitch.setRaiz(nodoRaiz);
+		arbolEjercicio3.setRaiz(nodoRaiz);
 		nodoRaiz.setNodoDer(nodo4);
 		nodoRaiz.setNodoIzq(nodo3);
 		nodo3.setNodoIzq(nodo1);
@@ -56,7 +54,7 @@ public class index {
 
 		ArrayList<String> preordenControl = new ArrayList<String>();
 		System.out.println("Imprimir Preorden Arbol Control");
-		imprimirPreorden(arbolControlSwitch.getRaiz(), preordenControl);
+		imprimirPreorden(arbolEjercicio3.getRaiz(), preordenControl);
 		System.out.println("Imprimir Array Preorden Control");
 		for (int i = 0; i < preordenControl.size(); i++) {
 			System.out.println(preordenControl.get(i));
@@ -69,28 +67,7 @@ public class index {
 		ArrayList<String> preorden = new ArrayList<String>();
 		ArrayList<String> inorden = new ArrayList<String>();
 		ArrayList<String> postorden = new ArrayList<String>();
-		/*
-		System.out.println("Imprimir Preorden");
-		imprimirPreorden(arbol.getRaiz(), preorden);
-		System.out.println("Imprimir Array Preorden");
-		for (int i = 0; i < preorden.size(); i++) {
-			System.out.println(preorden.get(i));
-		}
-
-		System.out.println("Imprimir Inorden");
-		imprimirInorden(arbol.getRaiz(), inorden);
-		System.out.println("Imprimir Array Inorden");
-		for (int i = 0; i < inorden.size(); i++) {
-			System.out.println(inorden.get(i));
-		}
-
-		System.out.println("Imprimir Postorden");
-		imprimirPostorden(arbol.getRaiz(), postorden);
-		System.out.println("Imprimir Array Postorden");
-		for (int i = 0; i < postorden.size(); i++) {
-			System.out.println(postorden.get(i));
-		}
-		*/
+		
 		/*
 		 * System.out.println("1-B Listar en Preorden"); imprimirItPostorden(arbol);
 		 * System.out.println("1-B Listar en Inorden"); imprimirItInorden(arbol);
@@ -155,24 +132,7 @@ public class index {
 		}
 	}//	ACA TERMINA EL MAIN
 
-	/*
-	 * public static char[] addElement(char[] a, char e) { a = Arrays.copyOf(a,
-	 * a.length + 1); a[a.length - 1] = e; return a; }
-	 */
-
-	/*
-	 * private static char[] addElement(char[] array, char push) { char[] longer =
-	 * new char[array.length + 1]; for (int i = 0; i < array.length; i++) longer[i]
-	 * = array[i]; longer[array.length] = push; return longer; }
-	 */
-
-	public static void imprimirArray(char[] a) {
-		for (int i = 0; i < a.length; i++) {
-			System.out.println(i);
-		}
-	}
-
-	// 1B POSTORDEN TERMINADA
+	// 1B POSTORDEN ITERATIVA
 	public static void imprimirItPostorden(ArbolB arbol) {
 		NodoB raiz = arbol.getRaiz();
 		if (raiz == null) {
@@ -198,7 +158,7 @@ public class index {
 		}
 	}
 
-	// 1B INORDEN TERMINADA
+	// 1B INORDEN ITERATIVA
 	public static void imprimirItInorden(ArbolB arbol) {
 		Stack<NodoB> pila = new Stack<NodoB>();
 
@@ -217,6 +177,52 @@ public class index {
 		}
 	}
 
+	//EJERCICIO 3 ITERATIVO
+	public static boolean comprobarCamino(ArbolB arbol, ArrayList<String> camino) {
+
+        if (camino.get(0) == arbol.getRaiz().getNombre()) {
+            NodoB nodoAux = arbol.getRaiz();
+
+            ArrayList<String> caminoAux = new ArrayList<String>();
+            caminoAux.add(nodoAux.getNombre());
+
+            for (int i = 0; i < camino.size(); i++) {
+                if (nodoAux.getNodoIzq() != null) {
+                    if (camino.get(i) == nodoAux.getNodoIzq().getNombre()) {
+                        nodoAux = nodoAux.getNodoIzq();
+                        caminoAux.add(nodoAux.getNombre());
+                    }
+                } else if (nodoAux.getNodoDer() != null) {
+                    if (camino.get(i) == nodoAux.getNodoDer().getNombre()) {
+                        nodoAux = nodoAux.getNodoDer();
+                        caminoAux.add(nodoAux.getNombre());
+                    }
+                }
+            }
+            if (caminoAux.equals(camino)) {
+                return true;
+            }
+        }
+        return false;
+	}
+
+	//EJERCICIO 3 RECURSIVO
+	public static boolean comprobarCamino(ArbolB arbol, ArrayList<String> camino, int i) {
+        boolean existe = false;
+        if(camino.size() == i) {
+            existe = true;
+        }else if (arbol.getRaiz() != null && arbol.getRaiz().getNombre() == camino.get(i)) {
+            existe = comprobarCamino(arbol.subIzquierdo(), camino, i + 1);
+
+            if (existe == false)
+			existe = comprobarCamino(arbol.subDerecho(), camino, i + 1);
+        }else {
+            existe = false;
+        }
+        return existe;
+    }
+
+	//FUNCIONES RECURSIVAS PARA IMPRIMIR LOS ORDENES Y GUARDARLOS EN LISTAS
 	public static void imprimirPreorden(NodoB auxRaiz, ArrayList<String> lista) {
 		if (auxRaiz != null) {
 			lista.add(auxRaiz.getNombre());
@@ -242,40 +248,6 @@ public class index {
 			System.out.println(auxRaiz.getNombre() + " ");
 			imprimirInorden(auxRaiz.getNodoDer(), lista);
 		}
-	}
-
-	public static ArbolB insertar(ArbolB arbol, int x) {
-		// Si el arbol es vac�o inserto el valor como ra�z
-		if (arbol.getRaiz() == null) {
-			NodoB nuevo = new NodoB(x);
-			arbol.setRaiz(nuevo);
-		} else {
-			if (x < arbol.getRaiz().getDato()) // El dato es menor a la ra�z
-			{
-				// Tengo que insertarlo a la izquierda
-				arbol.getRaiz().setNodoIzq(insertar(arbol.subIzquierdo(), x).getRaiz());
-			} else if (x > arbol.getRaiz().getDato())// el dato es mayor a la raiz
-			{
-				// Tengo que insertarlo a la derecha
-				arbol.getRaiz().setNodoDer(insertar(arbol.subDerecho(), x).getRaiz());
-			} else // Si el dato es igual
-			{
-				// No inserto nada
-				System.out.print("El dato ya existe en el Arbol");
-			}
-		}
-		return arbol;
-	}
-
-	public static ArbolB insertarArbol(ArbolB arbol, ArbolB otro) {
-		if (otro.getRaiz() != null) {
-			// Inserto primero la raiz como dato
-			arbol = insertar(arbol, otro.getRaiz().getDato());
-			// Llamo recursivamente para el subArbol izquierdo y el subarbol derecho
-			insertarArbol(arbol, otro.subIzquierdo());
-			insertarArbol(arbol, otro.subDerecho());
-		}
-		return arbol;
 	}
 
 }

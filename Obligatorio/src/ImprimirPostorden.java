@@ -22,7 +22,7 @@ public class ImprimirPostorden {
     int search(char[] in, int startIn, int endIn, int data) 
     { 
         int i = 0; 
-        for (i = startIn; i < endIn; i++)  
+        for (i = startIn; i < endIn; i++)
             if (in[i] == data)  
                 return i;             
         return i; 
