@@ -9,7 +9,7 @@ public class index {
 
 	public static void main(String[] args) {
 
-		// ARMANDO EL ARBOL DEL EJ 2 MANUALMENTE
+		// ARMANDO EL ARBOL DEL Obligatorio Gregorio y Nahuel 2020 MANUALMENTE
 		ArbolB arbolEj2 = new ArbolB();
 		NodoB nuevonodo = new NodoB(0, "G");
 		NodoB nodoM = new NodoB(1, "M");
@@ -38,15 +38,17 @@ public class index {
 		nodoJ.setNodoIzq(nodoH);
 
 		arbolEj2.setRaiz(nuevonodo);
-
+		
+		// VARIABLES PARA GUARDAR RECORRIDOS
 		ArrayList<String> preordenArbolEj2 = new ArrayList<String>();
 		ArrayList<String> inordenArbolEj2 = new ArrayList<String>();
 		ArrayList<String> postordenArbolEj2 = new ArrayList<String>();
 
+		//LLAMANDO FUNCIONES ITERATIVAS DEL EJERCICIO 1-B PARA COMPROBAR RECORRIDOS
 		imprimirItPostorden(arbolEj2, postordenArbolEj2);
 		imprimirItInorden(arbolEj2, inordenArbolEj2);
 		/*
-		 * FUNCIONES PARA PROBAR RECURSIVAMENTE EL 1B (TAMBIEN COMENTADO EN EL SWITCH)
+		 * FUNCIONES PARA PROBAR RECURSIVAMENTE EL 1B (TAMBIEN COMENTADO EN EL SWITCH) *si se quiere probar hay que comentar las iterativas
 		 * imprimirPreorden(arbolEj2.getRaiz(), preordenArbolEj2);
 		 * imprimirInorden(arbolEj2.getRaiz(), inordenArbolEj2);
 		 * imprimirPostorden(arbolEj2.getRaiz(), postordenArbolEj2);
@@ -66,25 +68,20 @@ public class index {
 		nodo4.setNodoIzq(nodo5);
 		arbolEj3.setRaiz(nodoRaiz);
 
+		// VARIABLES PARA GUARDAR RECORRIDOS
 		ArrayList<String> preordenArbolEj3 = new ArrayList<String>();
 		ArrayList<String> inordenArbolEj3 = new ArrayList<String>();
 		ArrayList<String> postordenArbolEj3 = new ArrayList<String>();
 
+		//LLAMANDO FUNCIONES ITERATIVAS DEL EJERCICIO 1-B PARA COMPROBAR RECORRIDOS
 		imprimirItPostorden(arbolEj3, postordenArbolEj3);
 		imprimirItInorden(arbolEj3, inordenArbolEj3);
 
 		/*
-		 * FUNCIONES PARA PROBAR RECURSIVAMENTE EL 1B (TAMBIEN COMENTADO EN EL SWITCH)
-		 * imprimirPreorden(arbolEj3.getRaiz(), preordenArbolEj3);
-		 * imprimirInorden(arbolEj3.getRaiz(), inordenArbolEj3);
-		 * imprimirPostorden(arbolEj3.getRaiz(), postordenArbolEj3);
-		 */
-		/*
-		 * ArrayList<String> preordenControl = new ArrayList<String>();
-		 * System.out.println("Imprimir Preorden Arbol Control");
-		 * imprimirPreorden(arbolEj3.getRaiz(), preordenControl);
-		 * System.out.println("Imprimir Array Preorden Control"); for (int i = 0; i <
-		 * preordenControl.size(); i++) { System.out.println(preordenControl.get(i)); }
+		//FUNCIONES PARA PROBAR RECURSIVAMENTE EL 1B (TAMBIEN COMENTADO EN EL SWITCH) *si se quiere probar hay que comentar las iterativas
+		imprimirPreorden(arbolEj3.getRaiz(), preordenArbolEj3);
+		imprimirInorden(arbolEj3.getRaiz(), inordenArbolEj3);
+		imprimirPostorden(arbolEj3.getRaiz(), postordenArbolEj3);
 		 */
 
 		// Esto es para el ej 3 para ver si estan los caminos dentro del arbol
@@ -94,6 +91,7 @@ public class index {
 		ArrayList<String> inorden = new ArrayList<String>();
 		ArrayList<String> postorden = new ArrayList<String>();
 
+		//ESTO ES PARA PROBAR EL EJERCICIO N2-C SIN EL SWITCH
 		/*	  
 		char preorden[] = {'G','E','A','I','B','M','C','L','D','F','K','J','H'}; 
 		char inorden[] = {'I','A','B','E','G','L','D','C','F','M','K','H','J'};
@@ -101,9 +99,9 @@ public class index {
 		impPost.imprimirPost(inorden, preorden, 0, inorden.length - 1);
 		 */
 
-		// PARA QUE ESTO FUNCIONE SIEMPRE HAY QUE AGREGAR EN ESTE ORDEN RAIZ / IZQUIERDO / DERECHO
-		// CREA ARBOLES BINARIOS DE BUSQUEDA
 		// PARA CASE 1 DE CREAR TU PROPIO ARBOL
+		// CREA ARBOLES BINARIOS DE BUSQUEDA
+		// PARA QUE ESTO FUNCIONE SIEMPRE HAY QUE AGREGAR EN ESTE ORDEN RAIZ / IZQUIERDO / DERECHO
 		int opcion = 0, elemento;
 		String nombre;
 		ArbolB arbolSwitch = new ArbolB();
@@ -116,15 +114,15 @@ public class index {
 		do {
 			try {
 				opcion = Integer.parseInt(JOptionPane.showInputDialog(
-						null, "1. Crea tu propio Arbol\n" + "2. Ejercicio 1-B\n" + "3. Ejercicio 2-C\n"
-								+ "4. Ejercicio 3\n" + "5. Salir\n" + "Elige una Opcion...",
-						"Ej 2", JOptionPane.QUESTION_MESSAGE));
+						null, "1. Crea tu propio Arbol\n" + "2. Dar recorridos Postorden e Inorden iterativamente(Ej1-B)\n" + "3. Postorden dado el Preorden e Inorden(Ej2-C)\n"
+								+ "4. Consultar existencia de caminos(Ej3)\n" + "5. Salir\n" + "Elige una Opcion...",
+						"Obligatorio Gregorio y Nahuel 2020", JOptionPane.QUESTION_MESSAGE));
 				switch (opcion) {
 					case 1:
 						do {
 							try {
 								opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Recuerda agregar los nodos en orden Raiz / Izquierdo / Derecho\n" +
-										"1. Agregar un Nodo\n" + "2. Salir\n" + "Elige una Opcion...", "Ej 2",
+										"1. Agregar un Nodo\n" + "2. Salir\n" + "Elige una Opcion...", "Obligatorio Gregorio y Nahuel 2020",
 										JOptionPane.QUESTION_MESSAGE));
 								switch (opcion) {
 									case 1:
@@ -136,7 +134,7 @@ public class index {
 										arbolSwitch.agregarNodo(elemento, nombre);
 										break;
 									case 2:
-										JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin",
+										JOptionPane.showMessageDialog(null, "Saliendo", "Saliendo",
 												JOptionPane.QUESTION_MESSAGE);
 										break;
 									default:
@@ -172,13 +170,13 @@ public class index {
 											"Elige el arbol en el que quieres probar\n" + "1. Arbol Ejercicio 2\n"
 													+ "2. Arbol Ejercicio 3\n" + "3. Tu Arbol\n" + "4. Salir\n"
 													+ "Elige una Opcion...",
-											"Ej 2", JOptionPane.QUESTION_MESSAGE));
+											"Obligatorio Gregorio y Nahuel 2020", JOptionPane.QUESTION_MESSAGE));
 								}
 								if (arbolSwitch.getRaiz() == null) {
 									opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
 											"Elige el arbol en el que quieres probar\n" + "1. Arbol Ejercicio 2\n"
 													+ "2. Arbol Ejercicio 3\n" + "4. Salir\n" + "Elige una Opcion...",
-											"Ej 2", JOptionPane.QUESTION_MESSAGE));
+											"Obligatorio Gregorio y Nahuel 2020", JOptionPane.QUESTION_MESSAGE));
 								}
 								switch (opcion) {
 									case 1:
@@ -229,8 +227,8 @@ public class index {
 										 */
 										break;
 									case 4:
-										JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin",
-												JOptionPane.QUESTION_MESSAGE);
+										JOptionPane.showMessageDialog(null, "Saliendo", "Saliendo",
+											JOptionPane.QUESTION_MESSAGE);
 										break;
 									default:
 										JOptionPane.showMessageDialog(null, "Opcion no valida",
@@ -269,13 +267,13 @@ public class index {
 											"Elige el arbol en el que quieres probar\n" + "1. Arbol Ejercicio 2\n"
 													+ "2. Arbol Ejercicio 3\n" + "3. Tu Arbol\n" + "4. Salir\n"
 													+ "Elige una Opcion...",
-											"Ej 2", JOptionPane.QUESTION_MESSAGE));
+											"Obligatorio Gregorio y Nahuel 2020", JOptionPane.QUESTION_MESSAGE));
 								}
 								if (arbolSwitch.getRaiz() == null) {
 									opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
 											"Elige el arbol en el que quieres probar\n" + "1. Arbol Ejercicio 2\n"
 													+ "2. Arbol Ejercicio 3\n" + "4. Salir\n" + "Elige una Opcion...",
-											"Ej 2", JOptionPane.QUESTION_MESSAGE));
+											"Obligatorio Gregorio y Nahuel 2020", JOptionPane.QUESTION_MESSAGE));
 								}
 								switch (opcion) {
 									case 1:
@@ -306,8 +304,8 @@ public class index {
 												+ comprobarCamino(arbolSwitch, listPosibleRecorrido2));
 										break;
 									case 4:
-										JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin",
-												JOptionPane.QUESTION_MESSAGE);
+										JOptionPane.showMessageDialog(null, "Saliendo", "Saliendo",
+											JOptionPane.QUESTION_MESSAGE);
 										break;
 									default:
 										JOptionPane.showMessageDialog(null, "Opcion no valida",
@@ -319,7 +317,7 @@ public class index {
 						} while (opcion != 4);
 						break;
 					case 5:
-						JOptionPane.showMessageDialog(null, "Fin Respuesta", "Fin", JOptionPane.QUESTION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Saliendo", "Saliendo", JOptionPane.QUESTION_MESSAGE);
 						break;
 					default:
 						JOptionPane.showMessageDialog(null, "Opcion no valida", "Pon bien la opcion vite",
@@ -330,14 +328,16 @@ public class index {
 			}
 		} while (opcion != 5);
 
-		// imprimir
+		// imprimir para comparar
+		/*
 		System.out.println("Imprimir Preorden");
 		imprimirPreorden(arbolSwitch.getRaiz(), preorden);
 		System.out.println("Imprimir Array Preorden");
 		for (int i = 0; i < preorden.size(); i++) {
 			System.out.println(preorden.get(i));
 		}
-	}// ACA TERMINA EL MAIN
+		*/
+	}
 
 	// 1B POSTORDEN ITERATIVA CON AGREGAR A ARRAYLIST
 	public static void imprimirItPostorden(ArbolB arbol, ArrayList<String> lista) {
@@ -386,7 +386,7 @@ public class index {
 		}
 	}
 
-	// EJERCICIO 3 ITERATIVO
+	// EJERCICIO 3
 	public static boolean comprobarCamino(ArbolB arbol, ArrayList<String> camino) {
 		boolean devolver = false;
 		String nombRaiz = arbol.getRaiz().getNombre();
@@ -415,6 +415,7 @@ public class index {
 	}
 
 	// FUNCIONES RECURSIVAS PARA IMPRIMIR LOS ORDENES Y GUARDARLOS EN LISTAS
+	// SE HICIERON PARA PROBAR LOS RESULTADOS DE LAS ITERATIVAS Y COMPARAR
 	public static void imprimirPreorden(NodoB auxRaiz, ArrayList<String> lista) {
 		if (auxRaiz != null) {
 			lista.add(auxRaiz.getNombre());
